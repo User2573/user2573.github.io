@@ -1,0 +1,51 @@
+header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  background-color: #74a7cb;
+  padding: 0;
+  margin: 0 0 5vh 0;
+  text-align: left;
+}
+
+span#logo {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 2em;
+  display: inline-block;
+  margin: 2.5vh;
+  position: left;
+  text-align: left;
+}
+
+image#icon {}
+
+nav ul,
+li {
+  list-style-type: none;
+  display: inline;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: inline-block;
+  padding: 1vh;
+  margin: 0;
+  width: 7em;
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  text-decoration: none;
+  color: #000000;
+}
+
+nav a:hover {
+  color: #2f5e7f;
+  background-color: #000000;
+}
+
+header div {
+  background-color: #4283b2;
+  margin: 0;
+  padding: 0;
+}
