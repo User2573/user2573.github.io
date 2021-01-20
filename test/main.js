@@ -10,4 +10,8 @@ function resizeCanvas() {
   canvas.width = window.innerWidth * scale;
   canvas.height = window.innerHeight * scale;
   ctx.scale(scale, scale);
+  
+  ctx.moveTo(0,0);
+  ctx.lineTo(canvas.width,canvas.height);
+  ctx.stroke();
 }
