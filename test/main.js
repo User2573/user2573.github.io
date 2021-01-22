@@ -11,6 +11,13 @@ function resizeCanvas() {
   canvas.height = window.innerHeight * scale;
   ctx.scale(scale, scale);
 }
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+function cycle() {
   ctx.moveTo(0,0);
   ctx.lineTo(canvas.width,canvas.height);
   ctx.stroke();
+  requestAnimationFrame(cycle);
+}
+requestAnimationFrame(cycle);
