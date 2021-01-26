@@ -23,8 +23,6 @@ function cycle(){
   ctx.stroke();
   ctx.closePath();
   
-  ctx.fillText("dpi: "+window.devicePixelRatio, 500, 500);
-  
   requestAnimationFrame(cycle);
 }
 requestAnimationFrame(cycle);
