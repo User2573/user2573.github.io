@@ -18,7 +18,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
-      animation: 5s linear 0 infinite spin;
+      animation: 5s linear 0s infinite running spin;
     }
     
     @keyframes spin {
@@ -29,7 +29,7 @@
       }
       to {
         transform: rotateY(360deg);
-        moz-transform: rotateY(360deg); //Firefox
+        moz-transform: rotateY(360deg); //Firefox0
         ms-transform: rotateY(360deg); //Microsoft Browsers
       }
     }
