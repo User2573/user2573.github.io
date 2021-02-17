@@ -18,6 +18,25 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
+      animation: 5s linear 0 infinite spin;
+    }
+    
+    @keyframes spin {
+      from {
+        transform: rotateY(0deg);
+        moz-transform: rotateY(0deg); //Firefox
+        ms-transform: rotateY(0deg); //Microsoft Browsers
+      }
+      to {
+        transform: rotateY(360deg);
+        moz-transform: rotateY(360deg); //Firefox
+        ms-transform: rotateY(360deg); //Microsoft Browsers
+      }
+    }
+    
+    @-webkit-keyframes spin {
+      from{-webkit-transform: rotateY(0deg);}
+      to{-webkit-transform: rotateY(360deg);}
     }
   </style>
 </head>
