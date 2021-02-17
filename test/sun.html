@@ -23,22 +23,22 @@
       animation-timing-function: linear;
     }
     
-    @keyframes spin {
+@keyframes spin {
       from {
         transform: translate(-50%,-50%) rotateY(0deg);
         moz-transform: translate(-50%,-50%) rotateY(0deg);
         ms-transform: translate(-50%,-50%) rotateY(0deg);
       }
       to {
-        transform: rotateY(360deg) translate(-50%,-50%);
-        moz-transform: rotateY(360deg) translate(-50%,-50%);
-        ms-transform: rotateY(360deg) translate(-50%,-50%);
+        transform: translate(-50%,-50%) rotateY(360deg);
+        moz-transform: translate(-50%,-50%) rotateY(360deg);
+        ms-transform: translate(-50%,-50%) rotateY(360deg);
       }
     }
     
     @-webkit-keyframes spin {
       from{-webkit-transform: translate(-50%,-50%) rotateY(0deg);}
-      to{-webkit-transform: rotateY(360deg) translate(-50%,-50%);}
+      to{-webkit-transform: translate(-50%,-50%) rotateY(360deg);}
     }
   </style>
 </head>
