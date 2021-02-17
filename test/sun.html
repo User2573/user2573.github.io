@@ -17,7 +17,6 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%,-50%);
       animation-name: spin;
       animation-duration: 4000ms;
       animation-iteration-count: infinite;
@@ -26,20 +25,20 @@
     
     @keyframes spin {
       from {
-        transform: rotateY(0deg);
-        moz-transform: rotateY(0deg); //Firefox
-        ms-transform: rotateY(0deg); //Microsoft Browsers
+        transform: rotateY(0deg), translate(-50%,-50%);
+        moz-transform: rotateY(0deg), translate(-50%,-50%); //Firefox
+        ms-transform: rotateY(0deg), translate(-50%,-50%); //Microsoft Browsers
       }
       to {
-        transform: rotateY(360deg);
-        moz-transform: rotateY(360deg); //Firefox0
-        ms-transform: rotateY(360deg); //Microsoft Browsers
+        transform: rotateY(360deg), translate(-50%,-50%);
+        moz-transform: rotateY(360deg), translate(-50%,-50%); //Firefox
+        ms-transform: rotateY(360deg), translate(-50%,-50%); //Microsoft Browsers
       }
     }
     
     @-webkit-keyframes spin {
-      from{-webkit-transform: rotateY(0deg);}
-      to{-webkit-transform: rotateY(360deg);}
+      from{-webkit-transform: rotateY(0deg), translate(-50%,-50%);}
+      to{-webkit-transform: rotateY(360deg), translate(-50%,-50%);}
     }
   </style>
 </head>
