@@ -1,6 +1,9 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+var centerX = canvas.width / 2;
+var centerY = canvas.height / 2;
+
 function resizeCanvas() {
   //fit canvas to window and fix issues with canvas blur on zoom
   canvas.style.width = window.innerWidth + "px";
@@ -9,6 +12,8 @@ function resizeCanvas() {
   canvas.width = window.innerWidth * scale;
   canvas.height = window.innerHeight * scale;
   ctx.scale(scale, scale);
+  centerX = canvas.width / 2;
+  centerY = canvas.height/2;
 }
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
@@ -22,6 +27,9 @@ function cycle(){
   ctx.lineTo(canvas.width, canvas.height);
   ctx.stroke();
   ctx.closePath();
+  
+  ctx.arc(centerX, centerY, 0, 2 * Math.PI);
+  ctx.stroke();
   
   requestAnimationFrame(cycle);
 }
