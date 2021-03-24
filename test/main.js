@@ -28,8 +28,10 @@ function cycle(){
   ctx.stroke();
   ctx.closePath();
   
+  ctx.beginPath();
   ctx.arc(centerX, centerY, 30, 0, 2 * Math.PI);
   ctx.stroke();
+  ctx.closePath();
   
   requestAnimationFrame(cycle);
 }
