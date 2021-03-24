@@ -29,7 +29,7 @@ function cycle(){
   ctx.closePath();
   
   ctx.beginPath();
-  ctx.arc(centerX, centerY, 30, 0, 2 * Math.PI);
+  ctx.arc(canvas.width, canvas.height, 30, 0, 2 * Math.PI);
   ctx.stroke();
   ctx.closePath();
   
