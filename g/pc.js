@@ -13,8 +13,8 @@ function init() {
   canvas.width = window.innerWidth * scale;
   canvas.height = window.innerHeight * scale;
   ctx.scale(scale, scale);
-  cw = canvas.width;
-  ch = canvas.height;
+  cw = canvas.width / scale;
+  ch = canvas.height / scale;
   hw = cw / 2;
   hh = ch / 2;
 }
