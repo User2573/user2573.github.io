@@ -149,7 +149,7 @@ function drawBody() {
   ctx.strokeStyle = player.color.stroke;
   ctx.lineWidth = 5;
   ctx.beginPath();
-  ctx.arc(hw / 2, hh / 2, 35, 0, 2 * Math.PI);
+  ctx.arc(hw, hh, 35, 0, 2 * Math.PI);
   ctx.fill();
   ctx.stroke();
   ctx.closePath();
