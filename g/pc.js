@@ -13,10 +13,10 @@ function init() {
   canvas.width = window.innerWidth * scale;
   canvas.height = window.innerHeight * scale;
   ctx.scale(scale, scale);
-  hw = canvas.width / 2;
-  hh = canvas.width / 2;
-  cw = window.innerWidth;
-  ch = window.innerHeight;
+  cw = canvas.width;
+  ch = canvas.height;
+  hw = cw / 2;
+  hh = ch / 2;
 }
 window.onload = init;
 window.onresize = init;
