@@ -184,8 +184,8 @@ function drawName() {
     player.name = "Player";
   }
   ctx.beginPath();
-  ctx.strokeText(player.name, 0, player.pos.name);
-  ctx.fillText(player.name, 0, player.pos.name);
+  ctx.strokeText(player.name, hw, player.pos.name);
+  ctx.fillText(player.name, hw, player.pos.name);
   ctx.closePath();
 }
 
@@ -193,8 +193,8 @@ function drawScore() {
   ctx.font = "0.75em Ubuntu";
   ctx.lineWidth = 3;
   ctx.beginPath();
-  ctx.strokeText(player.score, 0, player.pos.score);
-  ctx.fillText(player.score, 0, player.pos.score);
+  ctx.strokeText(player.score, hw, player.pos.score);
+  ctx.fillText(player.score, hw, player.pos.score);
   ctx.closePath();
 }
 
@@ -216,15 +216,13 @@ function drawJoystick() {
 function frames() {
   requestAnimationFrame(frames);
   
-  ctx.clearRect(0, 0, hw, hh);
+  ctx.clearRect(0, 0, cw, ch);
   drawBackground();
   drawBarrelsBasic();
   drawBody();
   drawName();
   drawScore();
   drawJoystick();
-  hw = canvas.width/2;
-  hh = canvas.height/2;
 }
 requestAnimationFrame(frames);
 
