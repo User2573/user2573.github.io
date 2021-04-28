@@ -100,6 +100,23 @@ var player = {
   },
 };
 
+//////////////////
+//  GAME STATE  //
+//////////////////
+
+var bullets = [];
+
+function createBullet(x, y, angle) {
+
+}
+
+function updateBullets() {
+  
+}
+
+
+
+
 
 
 
@@ -199,7 +216,7 @@ function drawName() {
   ctx.lineWidth = 6;
   ctx.fillStyle = "#ffffff";
   if (input.value == "") {
-    player.name = "Tí • Bó";
+    player.name = "Player";
   }
   ctx.beginPath();
   ctx.strokeText(player.name, hw, hh - 75);
