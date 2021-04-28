@@ -154,7 +154,7 @@ canvas.addEventListener("touchend", ()=>{
   player.pos.lookY = undefined;
 });
 
-canvas.addEventListener("mousemove", () => {
+document.addEventListener("mousemove", () => {
   player.pos.angle = Math.atan2(e.offsetY - hh, e.offsetX - hw);
 });
 
