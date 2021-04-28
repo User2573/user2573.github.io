@@ -92,7 +92,7 @@ var player = {
     joystY: undefined,
     angle: -0.8
   },
-  name: "Tí • Bó",
+  name: "Player",
   score: 0,
   color: {
     body: blueTank,
@@ -100,6 +100,13 @@ var player = {
   },
 };
 
+
+
+
+
+////////////////
+//  CONTROLS  //
+////////////////
 
 canvas.addEventListener("touchstart", (e)=>{
   player.pos.joystX = e.touches[0].clientX;
@@ -130,7 +137,20 @@ canvas.addEventListener("touchend", ()=>{
   player.pos.lookY = undefined;
 });
 
+canvas.addEventListener("mousemove", () => {
+  player.pos.angle = Math.atan2(e.offsetY - hh, e.offsetX - hw);
+});
+
 input.addEventListener("input", () => { player.name = input.value });
+
+
+
+
+
+
+/////////////////
+//  RENDERING  //
+/////////////////
 
 function drawBackground() {
   ctx.fillStyle = "#cdcdcd";
@@ -138,8 +158,8 @@ function drawBackground() {
   
   
   /*ctx.lineWidth = 0.5;
-  ctx.strokeStyle = "#000";
-  // TOD: BACKGROUND GRID*/
+  ctx.strokeStyle = "#000";*/
+  // TODO: background grid
 }
 
 function drawBody() {
@@ -224,9 +244,13 @@ function frames() {
 }
 requestAnimationFrame(frames);
 
-//////////////////
-//color changing//
-//////////////////
+
+
+
+
+//////////////////////
+//  COLOR CHANGING  //
+//////////////////////
 
 document.getElementById("blue").addEventListener("click", () => {
   player.color.body = blueTank;
