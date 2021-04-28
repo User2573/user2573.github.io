@@ -246,11 +246,11 @@ document.getElementById("purple").addEventListener("click", () => {
 });
 
 // Rainbow tank
-document.getElementById("hmm").addEventListener("click", () => {
-  const scale = chroma.scale([blueTank, pentagon, purpleTank, crasher, redTank, summoned, square, greenTank, blueTank]).colors(2500);
-  const strokeScale = chroma.scale([blueTankStroke, pentagonStroke, purpleTankStroke, crasherStroke, redTankStroke, summonedStroke, squareStroke, greenTankStroke, blueTankStroke]).colors(2500);
-  let i = 0;
-    setInterval(() => {
+const scale = chroma.scale([blueTank, pentagon, purpleTank, crasher, redTank, summoned, square, greenTank, blueTank]).colors(2500);
+const strokeScale = chroma.scale([blueTankStroke, pentagonStroke, purpleTankStroke, crasherStroke, redTankStroke, summonedStroke, squareStroke, greenTankStroke, blueTankStroke]).colors(2500);
+  
+let i = 0;
+var rainbowTank = () => {
       i += 1;
       if (i > scale.length) {
           i = 0;
@@ -258,7 +258,18 @@ document.getElementById("hmm").addEventListener("click", () => {
       
       player.color.body = scale[i];
       player.color.stroke = strokeScale[i];
-    });
+};
+
+var rainbowTankActive = false;
+
+document.getElementById("hmm").addEventListener("click", () => {
+  if (rainbowTankActive == false) {
+    rainbowTankActive = true;
+    setInterval(rainbowTank);
+  } else {
+    rainbowTankActive = false;
+    clearInterval(rainbowTank);
+  }
 });
 
 
