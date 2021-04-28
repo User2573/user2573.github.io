@@ -310,13 +310,9 @@ document.getElementById("hmm").addEventListener("click", () => {
 // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
 var keys = {37: 1, 38: 1, 39: 1, 40: 1};
 
-function preventDefault(e) {
-  e.preventDefault();
-}
-
 function preventDefaultForScrollKeys(e) {
   if (keys[e.keyCode]) {
-    preventDefault(e);
+    e.preventDefault();
     return false;
   }
 }
