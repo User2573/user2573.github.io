@@ -118,6 +118,8 @@ function createBullet() {
   });
 }
 
+setInterval(createBullet, 1500);
+
 function updateBullets() {
   bullets.forEach((bullet, i) => {
     bullet.x = Math.cos(bullet.angle) * speed;
@@ -223,6 +225,19 @@ function drawBarrelsBasic() {
   ctx.closePath();
 }
 
+function drawBullets() {
+  bullets.forEach((bullet, i) => {
+    ctx.beginPath();
+    ctx.fillStyle = player.color.body;
+    ctx.strokeStyle = player.color.stroke;
+    ctx.lineWidth = 5;
+    ctx.arc(bullet.x, bullet.y, 5. 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+  });
+}
+
 function drawName() {
   ctx.font = "1.5em Ubuntu";
   ctx.textAlign = "center";
@@ -236,10 +251,10 @@ function drawName() {
   ctx.strokeText(player.name, hw, hh - 75);
   ctx.fillText(player.name, hw, hh - 75);
   ctx.closePath();
-}
+}p
 
 function drawScore() {
-  ctx.font = "0.75em Ubuntu";
+  ctx.font = "0.75em Ubuntu";.
   ctx.lineWidth = 3;
   ctx.beginPath();
   ctx.strokeText(player.score, hw, hh - 55);
@@ -262,18 +277,26 @@ function drawJoystick() {
   ctx.closePath();
 }
 
-function frames() {
-  requestAnimationFrame(frames);
-  
+function render() {
+  requestAnimationFrame(render);
   ctx.clearRect(0, 0, hw, hh);
   drawBackground();
+  drawBullets();
   drawBarrelsBasic();
   drawBody();
   drawName();
   drawScore();
   drawJoystick();
 }
-requestAnimationFrame(frames);
+requestAnimationFrame(render);
+
+
+function tick() {
+  updateBullets();
+}
+
+setInterval(tick, 1000/60);
+
 
 
 
