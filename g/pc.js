@@ -106,12 +106,26 @@ var player = {
 
 var bullets = [];
 
-function createBullet(x, y, angle) {
-
+function createBullet() {
+  bullets.push({
+    // id: Date.now(),
+    // parent: player.id,
+    // UNUSED, though i may use it if i were to make it multiplayer
+    angle: player.angle,
+    x: player.x,
+    y: player.y,
+    speed: 5,
+  });
 }
 
 function updateBullets() {
-  
+  bullets.forEach((bullet, i) => {
+    bullet.x = Math.cos(bullet.angle) * speed;
+    bullet.y = Math.sin(bullet.angle) * speed;
+    
+    if (bullet.speed <= 0) { bullets.splice(i, 1); }
+    else { bullet.speed -= 0.125; }
+  }
 }
 
 
@@ -320,8 +334,9 @@ document.getElementById("hmm").addEventListener("click", () => {
 
 
 
-
-
+//////////////////////
+//  PREVENT SCROLL  //
+//////////////////////
 
 // left: 37, up: 38, right: 39, down: 40,
 // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
