@@ -287,15 +287,17 @@ function render() {
   drawName();
   drawScore();
   drawJoystick();
+  
+  updateBullets();
 }
 requestAnimationFrame(render);
 
 
-function tick() {
+/*function tick() {
   updateBullets();
 }
 
-setInterval(tick, 1000/60);
+setInterval(tick, 1000/60);*/
 
 
 
