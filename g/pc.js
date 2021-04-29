@@ -122,8 +122,8 @@ setInterval(createBullet, 1500);
 
 function updateBullets() {
   bullets.forEach((bullet, i) => {
-    bullet.x = Math.cos(bullet.angle) * speed;
-    bullet.y = Math.sin(bullet.angle) * speed;
+    bullet.x = Math.cos(bullet.angle) * bullet.speed;
+    bullet.y = Math.sin(bullet.angle) * bullet.speed;
     
     if (bullet.speed <= 0) { bullets.splice(i, 1); }
     else { bullet.speed -= 0.125; }
