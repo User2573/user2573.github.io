@@ -125,7 +125,7 @@ function updateBullets() {
     
     if (bullet.speed <= 0) { bullets.splice(i, 1); }
     else { bullet.speed -= 0.125; }
-  }
+  });
 }
 
 
