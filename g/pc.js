@@ -278,7 +278,6 @@ function drawJoystick() {
 
 function frames() {
   requestAnimationFrame(frames);
-  tick();
   
   ctx.clearRect(0, 0, hw, hh);
   drawBackground();
@@ -294,6 +293,8 @@ frames();
 function tick() {
   updateBullets();
 }
+
+var tickId = setInterval(tick, 1000/60);
 
 
 
