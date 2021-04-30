@@ -123,8 +123,8 @@ function createBullet() {
   bullets.push({
     id: Date.now(),
     parent: player.id,
-    x: player.pos.x + Math.cos(player.pos.angle) * 75,
-    y: player.pos.y + Math.sin(player.pos.angle) * 75,
+    x: player.pos.x + (Math.cos(player.pos.angle)) * 75,
+    y: player.pos.y + (Math.sin(player.pos.angle)) * 75,
     angle: player.pos.angle,
     speed: 8,
     age: 0,
@@ -147,14 +147,14 @@ function updateBullets() {
 }
 
 
-
+var intervalId;
 
 canvas.addEventListener("touchstart", (e)=>{
   player.pos.joystX = e.touches[0].clientX;
   player.pos.joystY = e.touches[0].clientY;
   player.pos.lookX = e.touches[0].clientX;
   player.pos.lookY = e.touches[0].clientY;
-  setInterval(createBullet, 800);
+  intervalId = setInterval(createBullet, 800);
 });
 
 canvas.addEventListener("touchmove", (e)=>{
@@ -177,7 +177,7 @@ canvas.addEventListener("touchend", ()=>{
   player.pos.joystY = undefined;
   player.pos.lookX = undefined;
   player.pos.lookY = undefined;
-  clearInterval(createBullet);
+  clearInterval(intervalId);
 });
 
 input.addEventListener("input", () => { player.name = input.value });
