@@ -115,10 +115,11 @@ function createBullet() {
     x: player.x,
     y: player.y,
     speed: 5,
+    age: 5
   });
 }
 
-setInterval(createBullet, 1500);
+//setInterval(createBullet, 1500);
 
 function updateBullets() {
   bullets.forEach((bullet, i) => {
