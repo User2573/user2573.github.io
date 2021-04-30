@@ -220,6 +220,7 @@ function drawBody() {
 
 function drawBarrelsBasic() {
   ctx.beginPath();
+  ctx.globalAlpha = 0.2;
   ctx.fillStyle = barrel;
   ctx.strokeStyle = barrelStroke;
   ctx.lineWidth = 5;
