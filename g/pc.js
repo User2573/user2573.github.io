@@ -154,6 +154,8 @@ canvas.addEventListener("touchstart", (e)=>{
   player.pos.joystY = e.touches[0].clientY;
   player.pos.lookX = e.touches[0].clientX;
   player.pos.lookY = e.touches[0].clientY;
+  
+  if (intervalId) clearInterval(intervalId);
   intervalId = setInterval(createBullet, 800);
 });
 
