@@ -111,11 +111,11 @@ function createBullet() {
     // id: Date.now(),
     // parent: player.id,
     // UNUSED, though i may use it if i were to make it multiplayer
-    angle: player.angle,
-    x: player.x,
-    y: player.y,
+    angle: player.pos.angle,
+    x: player.pos.x,
+    y: player.pos.y,
     speed: 5,
-    age: 5
+    age: 0
   });
 }
 
@@ -126,11 +126,11 @@ function updateBullets() {
     bullet.x = Math.cos(bullet.angle) * bullet.speed;
     bullet.y = Math.sin(bullet.angle) * bullet.speed;
     
-    if (bullet.speed <= 0) {
+    if (bullet.age >= 5) {
       bullets.splice(i, 1);
     }
     else {
-      bullet.speed -= 0.125;
+      bullet.age += 0.125;
     }
   });
 }
