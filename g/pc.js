@@ -220,7 +220,6 @@ function drawBody() {
 
 function drawBarrelsBasic() {
   ctx.beginPath();
-  ctx.globalAlpha = 0.2;
   ctx.fillStyle = barrel;
   ctx.strokeStyle = barrelStroke;
   ctx.lineWidth = 5;
@@ -284,7 +283,7 @@ function frames() {
   ctx.clearRect(0, 0, hw, hh);
   drawBackground();
   drawBullets();
-  drawBarrelsBasic();
+//  drawBarrelsBasic();
   drawBody();
   drawName();
   drawScore();
