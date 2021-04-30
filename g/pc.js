@@ -132,7 +132,6 @@ function createBullet() {
   console.log("bullet created");
 }
 
-setInterval(createBullet, 1000);
 
 function updateBullets() {
   bullets.forEach((bullet, i) => {
@@ -155,6 +154,7 @@ canvas.addEventListener("touchstart", (e)=>{
   player.pos.joystY = e.touches[0].clientY;
   player.pos.lookX = e.touches[0].clientX;
   player.pos.lookY = e.touches[0].clientY;
+  setInterval(createBullet, 800);
 });
 
 canvas.addEventListener("touchmove", (e)=>{
@@ -177,6 +177,7 @@ canvas.addEventListener("touchend", ()=>{
   player.pos.joystY = undefined;
   player.pos.lookX = undefined;
   player.pos.lookY = undefined;
+  clearInterval(createBullet);
 });
 
 input.addEventListener("input", () => { player.name = input.value });
