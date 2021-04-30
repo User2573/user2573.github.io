@@ -119,7 +119,9 @@ var player = {
 
 // BULLETS AND GAME
 var bullets = [];
+var hasFiredRecently = false;
 function createBullet() {
+  if (hasFiredRecently) return;
   bullets.push({
     id: Date.now(),
     parent: player.id,
@@ -130,6 +132,8 @@ function createBullet() {
     age: 0,
   });
   console.log("bullet created");
+  hasFiredRecently = true;
+  setTimeout(() => { hasFiredRecently = false}, 800);
 }
 
 
@@ -147,6 +151,7 @@ function updateBullets() {
 }
 
 
+
 var intervalId;
 
 canvas.addEventListener("touchstart", (e)=>{
@@ -154,6 +159,10 @@ canvas.addEventListener("touchstart", (e)=>{
   player.pos.joystY = e.touches[0].clientY;
   player.pos.lookX = e.touches[0].clientX;
   player.pos.lookY = e.touches[0].clientY;
+  
+  if (hasFiredRecently) return;
+  
+  createBullet();
   
   if (intervalId) clearInterval(intervalId);
   intervalId = setInterval(createBullet, 800);
@@ -282,7 +291,7 @@ function frames() {
   ctx.clearRect(0, 0, hw, hh);
   drawBackground();
   drawBullets();
-//  drawBarrelsBasic();
+  drawBarrelsBasic();
   drawBody();
   drawName();
   drawScore();
