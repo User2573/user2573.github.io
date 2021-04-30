@@ -108,9 +108,6 @@ var bullets = [];
 
 function createBullet() {
   bullets.push({
-    // id: Date.now(),
-    // parent: player.id,
-    // UNUSED, though i may use it if i were to make it multiplayer
     angle: player.pos.angle,
     x: player.pos.x,
     y: player.pos.y,
@@ -123,8 +120,8 @@ function createBullet() {
 
 function updateBullets() {
   bullets.forEach((bullet, i) => {
-    bullet.x = Math.cos(bullet.angle) * bullet.speed;
-    bullet.y = Math.sin(bullet.angle) * bullet.speed;
+    bullet.x += Math.cos(bullet.angle) * bullet.speed;
+    bullet.y += Math.sin(bullet.angle) * bullet.speed;
     
     if (bullet.age >= 5) {
       bullets.splice(i, 1);
@@ -286,7 +283,7 @@ function render() {
   requestAnimationFrame(render);
   ctx.clearRect(0, 0, hw, hh);
   drawBackground();
-  drawBullets();
+ // drawBullets();
   drawBarrelsBasic();
   drawBody();
   drawName();
