@@ -120,8 +120,10 @@ var player = {
 // BULLETS AND GAME
 var bullets = [];
 var hasFiredRecently = false;
+
 function createBullet() {
   if (hasFiredRecently) return;
+  
   bullets.push({
     id: Date.now(),
     parent: player.id,
@@ -162,8 +164,7 @@ canvas.addEventListener("touchstart", (e)=>{
   
   if (hasFiredRecently) return;
   
-  createBullet();
-  
+  createBullet(); 
   if (intervalId) clearInterval(intervalId);
   intervalId = setInterval(createBullet, 800);
 });
