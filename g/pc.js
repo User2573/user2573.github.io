@@ -104,7 +104,7 @@ var player = {
 //  GAME STATE  //
 //////////////////
 
-var bullets = [];
+/*var bullets = [];
 
 function createBullet() {
   bullets.push({
@@ -132,7 +132,7 @@ function updateBullets() {
   });
 }
 
-
+*/
 
 
 
@@ -194,14 +194,14 @@ function drawBackground() {
   
   /*ctx.lineWidth = 0.5;
   ctx.strokeStyle = "#000";*/
-  // TODO: background grid
+  // : background grid
 }
 
 function drawBody() {
   ctx.fillStyle = player.color.body;
   ctx.strokeStyle = player.color.stroke;
   ctx.lineWidth = 5;
-  ctx.beginPath();
+   ctx.beginPath();
   ctx.arc(hw, hh, 35, 0, 2 * Math.PI);
   ctx.fill();
   ctx.stroke();
@@ -227,7 +227,7 @@ function drawBarrelsBasic() {
   ctx.closePath();
 }
 
-function drawBullets() {
+ /* function drawBullets() {
   bullets.forEach((bullet, i) => {
     ctx.beginPath();
     ctx.fillStyle = player.color.body;
@@ -238,7 +238,7 @@ function drawBullets() {
     ctx.stroke();
     ctx.closePath();
   });
-}
+}*/
 
 function drawName() {
   ctx.font = "1.5em Ubuntu";
