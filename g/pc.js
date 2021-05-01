@@ -135,7 +135,7 @@ function createBullet() {
   });
   console.log("bullet created");
   hasFiredRecently = true;
-  setTimeout(() => { hasFiredRecently = false}, 800);
+  setTimeout(() => { hasFiredRecently = false}, 775);
 }
 
 
@@ -164,8 +164,9 @@ canvas.addEventListener("touchstart", (e)=>{
   
   if (hasFiredRecently) return;
   
-  createBullet(); 
+
   if (intervalId) clearInterval(intervalId);
+  createBullet();
   intervalId = setInterval(createBullet, 800);
 });
 
