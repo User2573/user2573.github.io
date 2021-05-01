@@ -153,9 +153,7 @@ function updateBullets() {
 }
 
 var intervalId;
-function startCreatingBullets() {
-  if (hasFiredRecently) return;
-  
+function startCreatingBullets() {  
   if (intervalId) clearInterval(intervalId);
   setTimeout(() => {
     createBullet();
@@ -280,9 +278,6 @@ function drawName() {
   ctx.fillStyle = "#ffffff";
   if (input.value == "") {
     player.name = "Tí • Bó";
-  }
-  if (input.value = "stop") {
-    stopRendering();
   }
   ctx.beginPath();
   ctx.strokeText(player.name, hw, hh - 75);
