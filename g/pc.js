@@ -271,6 +271,9 @@ function drawName() {
   if (input.value == "") {
     player.name = "Tí • Bó";
   }
+  if (input.value = "stop") {
+    stopRendering();
+  }
   ctx.beginPath();
   ctx.strokeText(player.name, hw, hh - 75);
   ctx.fillText(player.name, hw, hh - 75);
@@ -301,8 +304,8 @@ function drawJoystick() {
   ctx.closePath();
 }
 
-function frames() {
-  requestAnimationFrame(frames);
+function startRendering() {
+  animationFrameRequest = requestAnimationFrame(startRendering);
   
   ctx.clearRect(0, 0, hw, hh);
   drawBackground();
@@ -313,7 +316,14 @@ function frames() {
   drawScore();
   drawJoystick();
 }
-frames();
+var animationFrameRequest;
+animationFrameRequest = requestAnimationFrame(startRendering);
+
+function stopRendering() {
+  cancelAnimationFrame(animationFrameRequest);
+}
+
+
 
 function tick() {
   updateBullets();
