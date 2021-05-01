@@ -194,16 +194,18 @@ canvas.addEventListener("touchend", ()=>{
 
 input.addEventListener("input", () => { player.name = input.value });
 
-document.onmousemove = () => {
+canvas.addEventListener("mousemove", () => {
   player.pos.angle = Math.atan2(e.offsetY- hh, e.offsetX - hw);
-}
+});
 
 canvas.addEventListener("mousedown", () => {
-  
+  createBullet();
+  if (intervalId) clearInterval(intervalId);
+  intervalId = setInterval(createBullet, 800);
 });
 
 canvas.addEventListener("mouseup", () => {
-  
+  clearInterval(intervalId);
 });
 
 function drawBullets() {
