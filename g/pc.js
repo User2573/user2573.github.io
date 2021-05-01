@@ -159,7 +159,7 @@ function startCreatingBullets() {
   if (intervalId) clearInterval(intervalId);
   setTimeout(() => {
     createBullet();
-    intervalId = setInterval(createBullet, 800);
+    intervalId = setInterval(createBullet, 80);
   }, 100);
 }
 
