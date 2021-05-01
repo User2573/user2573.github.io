@@ -194,6 +194,18 @@ canvas.addEventListener("touchend", ()=>{
 
 input.addEventListener("input", () => { player.name = input.value });
 
+document.onmousemove = () => {
+  player.pos.angle = Math.atan2(e.offsetY- hh, e.offsetX - hw);
+}
+
+canvas.addEventListener("mousedown", () => {
+  
+});
+
+canvas.addEventListener("mouseup", () => {
+  
+});
+
 function drawBullets() {
   bullets.forEach(bullet => {
     ctx.beginPath();
