@@ -152,9 +152,19 @@ function updateBullets() {
   });
 }
 
-
-
 var intervalId;
+function startCreatingBullets() {
+  if (hasFiredRecently) return;
+  
+  if (intervalId) clearInterval(intervalId);
+  setTimeout(() => {
+    createBullet();
+    intervalId = setInterval(createBullet, 800);
+  }, 100);
+}
+
+function stopCreatingBullets() { clearInterval(intervalId) }
+
 
 canvas.addEventListener("touchstart", (e)=>{
   player.pos.joystX = e.touches[0].clientX;
@@ -162,12 +172,14 @@ canvas.addEventListener("touchstart", (e)=>{
   player.pos.lookX = e.touches[0].clientX;
   player.pos.lookY = e.touches[0].clientY;
   
-  if (hasFiredRecently) return;
+  startCreatingBullets();
+  
+  /*if (hasFiredRecently) return;
   
 
   if (intervalId) clearInterval(intervalId);
   createBullet();
-  intervalId = setInterval(createBullet, 800);
+  intervalId = setInterval(createBullet, 800);*/
 });
 
 canvas.addEventListener("touchmove", (e)=>{
@@ -190,7 +202,7 @@ canvas.addEventListener("touchend", ()=>{
   player.pos.joystY = undefined;
   player.pos.lookX = undefined;
   player.pos.lookY = undefined;
-  clearInterval(intervalId);
+  stopCreatingBullets();
 });
 
 input.addEventListener("input", () => { player.name = input.value });
@@ -200,13 +212,11 @@ canvas.addEventListener("mousemove", () => {
 });
 
 canvas.addEventListener("mousedown", () => {
-  createBullet();
-  if (intervalId) clearInterval(intervalId);
-  intervalId = setInterval(createBullet, 800);
+  startCreatingBullets();
 });
 
 canvas.addEventListener("mouseup", () => {
-  clearInterval(intervalId);
+  stopCreatingBullets();
 });
 
 function drawBullets() {
